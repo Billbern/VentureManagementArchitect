@@ -1,0 +1,156 @@
+/*=====================================================
+Venture Management Architect
+Design System
+Version 1.0
+======================================================*/
+
+:root{
+
+    /*==============================
+    COLORS
+    ==============================*/
+
+    --color-primary:#08121F;
+    --color-primary-light:#12304D;
+    --color-secondary:#18344E;
+    --color-accent:#C8A15A;
+    --color-accent-light:#D9B97B;
+
+    --color-success:#198754;
+    --color-warning:#F59E0B;
+    --color-danger:#D92D20;
+
+    --color-white:#FFFFFF;
+    --color-black:#000000;
+
+    --color-surface:#FFFFFF;
+    --color-surface-alt:#F7F8FA;
+    --color-surface-dark:#0F1722;
+
+    --color-border:#E5E7EB;
+    --color-border-light:#F1F3F5;
+
+    --color-text:#101828;
+    --color-text-light:#667085;
+    --color-text-muted:#98A2B3;
+
+    /*==============================
+    TYPOGRAPHY
+    ==============================*/
+
+    --font-display:"Inter",sans-serif;
+    --font-heading:"Inter",sans-serif;
+    --font-body:"Inter",sans-serif;
+    --font-number:"IBM Plex Sans",sans-serif;
+
+    /*==============================
+    FONT SIZES
+    ==============================*/
+
+    --fs-display:clamp(4rem,9vw,8rem);
+    --fs-h1:clamp(3rem,6vw,5rem);
+    --fs-h2:clamp(2.5rem,5vw,4rem);
+    --fs-h3:clamp(2rem,4vw,3rem);
+    --fs-h4:2rem;
+    --fs-h5:1.5rem;
+    --fs-h6:1.25rem;
+
+    --fs-xl:1.375rem;
+    --fs-lg:1.125rem;
+    --fs-md:1rem;
+    --fs-sm:.9375rem;
+    --fs-xs:.8125rem;
+
+    /*==============================
+    FONT WEIGHTS
+    ==============================*/
+
+    --fw-light:300;
+    --fw-normal:400;
+    --fw-medium:500;
+    --fw-semibold:600;
+    --fw-bold:700;
+    --fw-black:800;
+
+    /*==============================
+    LINE HEIGHT
+    ==============================*/
+
+    --lh-tight:1;
+    --lh-heading:1.1;
+    --lh-body:1.8;
+
+    /*==============================
+    SPACING
+    ==============================*/
+
+    --space-0:0;
+    --space-1:.25rem;
+    --space-2:.5rem;
+    --space-3:.75rem;
+    --space-4:1rem;
+    --space-5:1.5rem;
+    --space-6:2rem;
+    --space-7:3rem;
+    --space-8:4rem;
+    --space-9:5rem;
+    --space-10:6rem;
+    --space-11:8rem;
+    --space-12:10rem;
+
+    /*==============================
+    RADIUS
+    ==============================*/
+
+    --radius-sm:6px;
+    --radius-md:12px;
+    --radius-lg:18px;
+    --radius-xl:28px;
+    --radius-pill:999px;
+
+    /*==============================
+    SHADOWS
+    ==============================*/
+
+    --shadow-xs:0 2px 4px rgba(0,0,0,.05);
+    --shadow-sm:0 5px 15px rgba(0,0,0,.08);
+    --shadow-md:0 15px 35px rgba(0,0,0,.12);
+    --shadow-lg:0 25px 70px rgba(0,0,0,.18);
+
+    /*==============================
+    CONTAINER
+    ==============================*/
+
+    --container:1440px;
+    --container-wide:1640px;
+
+    /*==============================
+    TRANSITIONS
+    ==============================*/
+
+    --transition-fast:.25s ease;
+    --transition:.4s ease;
+    --transition-slow:.8s cubic-bezier(.2,.8,.2,1);
+
+    /*==============================
+    NAVIGATION TOKENS
+    ==============================*/
+
+    --nav-h:72px;
+    --navy:#08121F;
+    --navy-mid:#0F1722;
+    --navy-light:#1A2840;
+    --gold:#C8A15A;
+    --gold-muted:#9E7D42;
+    --gold-dim:rgba(200,161,90,0.12);
+    --border-dark:rgba(255,255,255,0.07);
+
+    /*==============================
+    Z INDEX
+    ==============================*/
+
+    --z-dropdown:1000;
+    --z-fixed:1010;
+    --z-overlay:1050;
+    --z-modal:1100;
+}

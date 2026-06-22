@@ -1,0 +1,114 @@
+/*=====================================================
+SECTION SPACING
+=====================================================*/
+
+.section{
+
+    padding:8rem 0;
+
+}
+
+.section-lg{
+
+    padding:10rem 0;
+
+}
+
+.section-dark{
+
+    background:var(--color-primary);
+
+    color:white;
+
+}
+
+.section-dark p,
+.section-dark .text-muted{
+    color:rgba(255,255,255,.7);
+}
+
+.section-dark h2,
+.section-dark h3,
+.section-dark h4,
+.section-dark h5,
+.section-dark h6{
+    color:white;
+}
+
+.section-light{
+
+    background:var(--color-surface-alt);
+
+}
+
+.section-header{
+
+    max-width:760px;
+
+    margin-bottom:5rem;
+
+}
+
+.section-header.center{
+
+    margin-inline:auto;
+
+    text-align:center;
+
+}
+
+/*====================================*/
+
+.flex{
+
+    display:flex;
+
+}
+
+.align-center{
+
+    align-items:center;
+
+}
+
+.justify-between{
+
+    justify-content:space-between;
+
+}
+
+.justify-center{
+
+    justify-content:center;
+
+}
+
+.gap-sm{
+
+    gap:1rem;
+
+}
+
+.gap{
+
+    gap:2rem;
+
+}
+
+.gap-lg{
+
+    gap:4rem;
+
+}
+
+/*====================================*/
+
+.hero-space{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+}

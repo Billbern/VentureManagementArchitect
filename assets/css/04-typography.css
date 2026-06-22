@@ -1,0 +1,107 @@
+/*=====================================================
+TYPOGRAPHY
+=====================================================*/
+
+body{
+    font-family:var(--font-body);
+    font-size:var(--fs-md);
+    font-weight:var(--fw-normal);
+    color:var(--color-text);
+    line-height:var(--lh-body);
+}
+
+/*-----------------------------------------------------
+Headings
+------------------------------------------------------*/
+
+h1,h2,h3,h4,h5,h6{
+    font-family:var(--font-heading);
+    font-weight:700;
+    line-height:1.1;
+    letter-spacing:-0.04em;
+    color:var(--color-primary);
+}
+
+.display{
+    font-size:var(--fs-display);
+    font-family:var(--font-display);
+    line-height:.95;
+    font-weight:700;
+    letter-spacing:-0.06em;
+}
+
+h1{
+    font-size:var(--fs-h1);
+}
+
+h2{
+    font-size:var(--fs-h2);
+}
+
+h3{
+    font-size:var(--fs-h3);
+}
+
+h4{
+    font-size:var(--fs-h4);
+}
+
+h5{
+    font-size:var(--fs-h5);
+}
+
+h6{
+    font-size:var(--fs-h6);
+}
+
+p{
+    color:var(--color-text-light);
+    margin-bottom:1.5rem;
+    max-width:65ch;
+}
+
+.lead{
+    font-size:1.25rem;
+    line-height:1.8;
+    max-width:750px;
+}
+
+.small{
+    font-size:.9rem;
+}
+
+.caption{
+
+    text-transform:uppercase;
+
+    font-size:.8rem;
+
+    letter-spacing:.18em;
+
+    color:var(--color-accent);
+
+    font-weight:600;
+
+    margin-bottom:1rem;
+
+}
+
+.text-white{
+    color:white;
+}
+
+.text-center{
+    text-align:center;
+}
+
+.text-right{
+    text-align:right;
+}
+
+.text-gold{
+    color:var(--color-accent);
+}
+
+.text-muted{
+    color:var(--color-text-muted);
+}

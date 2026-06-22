@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#08121F"/>
+  <line x1="0" y1="420" x2="800" y2="420" stroke="#C8A15A" stroke-opacity="0.15" stroke-width="0.5"/>
+  <line x1="0" y1="480" x2="800" y2="480" stroke="#C8A15A" stroke-opacity="0.10" stroke-width="0.5"/>
+  <polygon points="400,80 280,420 520,420" stroke="#C8A15A" stroke-opacity="0.3" stroke-width="1" fill="none"/>
+  <polygon points="400,160 320,420 480,420" stroke="#C8A15A" stroke-opacity="0.25" stroke-width="1" fill="none"/>
+  <polygon points="400,230 350,420 450,420" stroke="#C8A15A" stroke-opacity="0.2" stroke-width="1" fill="none"/>
+  <line x1="160" y1="180" x2="640" y2="180" stroke="#C8A15A" stroke-opacity="0.4" stroke-width="1.5"/>
+  <line x1="200" y1="180" x2="200" y2="420" stroke="#C8A15A" stroke-opacity="0.12" stroke-width="0.5"/>
+  <line x1="600" y1="180" x2="600" y2="420" stroke="#C8A15A" stroke-opacity="0.12" stroke-width="0.5"/>
+  <rect x="390" y="80" width="20" height="20" fill="#C8A15A" fill-opacity="0.4" transform="rotate(45, 400, 90)"/>
+  <rect x="60" y="60" width="680" height="480" stroke="#C8A15A" stroke-opacity="0.08" stroke-width="0.5" fill="none"/>
+  <line x1="640" y1="500" x2="720" y2="500" stroke="#C8A15A" stroke-opacity="0.5" stroke-width="2"/>
+  <line x1="720" y1="420" x2="720" y2="500" stroke="#C8A15A" stroke-opacity="0.5" stroke-width="2"/>
+  <defs>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C8A15A" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#C8A15A" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="300" y="0" width="200" height="420" fill="url(#glow)"/>
+</svg>

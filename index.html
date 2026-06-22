@@ -1,0 +1,2302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Venture Management Architect | Architecting Tomorrow's Enterprises
+    </title>
+
+    <meta name="description"
+          content="Enterprise Venture Architecture for governments, corporations, entrepreneurs and investors. We design, build and scale businesses that create sustainable economic impact.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Venture Management Architect | Enterprise Venture Architecture">
+    <meta property="og:description" content="We design, build and scale businesses that create sustainable economic impact across Africa and beyond.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://venturemanagementarchitect.com">
+    <meta property="og:image" content="assets/images/hero.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Venture Management Architect">
+    <meta name="twitter:description" content="Enterprise Venture Architecture for governments, corporations, entrepreneurs and investors.">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://venturemanagementarchitect.com">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Venture Management Architect",
+  "url": "https://venturemanagementarchitect.com",
+  "description": "Enterprise Venture Architecture firm designing, building and scaling businesses across Africa and beyond.",
+  "email": "info@venturemanagementarchitect.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Accra",
+    "addressCountry": "GH"
+  }
+}
+</script>
+
+<!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="assets/css/main.css">
+
+    <!-- GSAP & Lenis ready (architecture load) -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+
+<!-- ─── NEW NAV STYLES ──────────────────────────────────────────── -->
+<style>
+  /* ─── NAV TOKENS ───────────────────────────────────────────────── */
+  :root {
+    --nav-navy:        #08121F;
+    --nav-navy-mid:    #0F1722;
+    --nav-gold:        #C8A15A;
+    --nav-gold-muted:  #9E7D42;
+    --nav-gold-dim:    rgba(200,161,90,0.12);
+    --nav-border:      rgba(200,161,90,0.18);
+    --nav-border-dark: rgba(255,255,255,0.07);
+    --nav-muted:       #667085;
+    --nav-h:           72px;
+    --nav-ease:        cubic-bezier(0.4,0,0.2,1);
+    --nav-ease-out:    cubic-bezier(0,0,0.2,1);
+  }
+  /* ─── NAV SHELL ────────────────────────────────────────────────── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    height: var(--nav-h);
+    background: var(--nav-navy);
+    display: flex;
+    align-items: center;
+    transition: border-bottom 0.3s var(--nav-ease), box-shadow 0.3s var(--nav-ease);
+  }
+  .nav.is-scrolled {
+    border-bottom: 1px solid var(--nav-border);
+    box-shadow: 0 4px 32px rgba(0,0,0,0.35);
+  }
+  .nav__inner {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+  }
+  /* ─── LOGO ─────────────────────────────────────────────────────── */
+  .nav__logo {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin-right: auto;
+    text-decoration: none;
+  }
+  .nav__logo-wordmark {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 1;
+  }
+  .nav__logo-wordmark span { color: var(--nav-gold); }
+  .nav__logo-sub {
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--nav-muted);
+    line-height: 1;
+  }
+  /* ─── PRIMARY LINKS ─────────────────────────────────────────────── */
+  .nav__links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0; padding: 0;
+  }
+  .nav__item { position: relative; }
+  .nav__link, .nav__trigger {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 18px;
+    height: var(--nav-h);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.72);
+    text-decoration: none;
+    white-space: nowrap;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter', -apple-system, sans-serif;
+    transition: color 0.2s var(--nav-ease);
+  }
+  .nav__link:hover,
+  .nav__trigger:hover,
+  .nav__item.is-open > .nav__trigger { color: var(--nav-gold); }
+  .nav__chevron {
+    width: 10px; height: 10px;
+    display: block; flex-shrink: 0;
+    transition: transform 0.25s var(--nav-ease);
+  }
+  .nav__item.is-open > .nav__trigger .nav__chevron { transform: rotate(180deg); }
+  /* ─── CTA ───────────────────────────────────────────────────────── */
+  .nav__cta {
+    margin-left: 24px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 24px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--nav-navy);
+    background: var(--nav-gold);
+    border: 1px solid var(--nav-gold);
+    text-decoration: none;
+    transition: background 0.2s var(--nav-ease), color 0.2s var(--nav-ease);
+  }
+  .nav__cta:hover { background: transparent; color: var(--nav-gold); }
+  /* ─── SIMPLE DROPDOWN ───────────────────────────────────────────── */
+  .nav__dropdown {
+    position: absolute;
+    top: calc(var(--nav-h) - 1px);
+    left: 0;
+    min-width: 220px;
+    background: var(--nav-navy-mid);
+    border: 1px solid var(--nav-border-dark);
+    border-top: 2px solid var(--nav-gold);
+    padding: 8px 0;
+    list-style: none;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.22s var(--nav-ease-out), transform 0.22s var(--nav-ease-out);
+  }
+  .nav__item.is-open > .nav__dropdown {
+    opacity: 1; pointer-events: auto; transform: translateY(0);
+  }
+  .nav__dropdown-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 12.5px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.68);
+    text-decoration: none;
+    gap: 10px;
+    transition: color 0.15s, background 0.15s;
+  }
+  .nav__dropdown-link:hover { color: var(--nav-gold); background: var(--nav-gold-dim); }
+  .nav__dropdown-dot {
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: var(--nav-gold-muted);
+    flex-shrink: 0;
+  }
+  /* ─── MEGA MENU ─────────────────────────────────────────────────── */
+  .nav__mega {
+    position: fixed;
+    top: var(--nav-h);
+    left: 0; right: 0;
+    background: var(--nav-navy-mid);
+    border-top: 1px solid var(--nav-border);
+    border-bottom: 1px solid var(--nav-border-dark);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity 0.25s var(--nav-ease-out), transform 0.25s var(--nav-ease-out);
+  }
+  .nav__item.is-open > .nav__mega {
+    opacity: 1; pointer-events: auto; transform: translateY(0);
+  }
+  .nav__mega-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 48px 48px 56px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 0 64px;
+  }
+  .nav__mega-label { padding-top: 4px; }
+  .nav__mega-eyebrow {
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--nav-gold); margin-bottom: 12px;
+  }
+  .nav__mega-heading {
+    font-size: 22px; font-weight: 300;
+    line-height: 1.3; letter-spacing: -0.01em;
+    color: #fff; margin-bottom: 16px;
+  }
+  .nav__mega-desc {
+    font-size: 12px; line-height: 1.75;
+    color: rgba(255,255,255,0.45); margin-bottom: 28px;
+  }
+  .nav__mega-all {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 11.5px; font-weight: 600;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    color: var(--nav-gold); text-decoration: none;
+    transition: gap 0.2s var(--nav-ease);
+  }
+  .nav__mega-all:hover { gap: 11px; }
+  .nav__mega-all svg { width: 12px; height: 12px; }
+  .nav__mega-grid {
+    display: grid; gap: 0 32px; align-content: start;
+  }
+  .nav__mega-grid--caps { grid-template-columns: repeat(2,1fr); }
+  .nav__mega-grid--ind  { grid-template-columns: repeat(3,1fr); }
+  .nav__mega-pillar {
+    padding: 24px 0;
+    border-top: 1px solid var(--nav-border-dark);
+  }
+  .nav__mega-pillar-title {
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--nav-gold-muted); margin-bottom: 12px;
+  }
+  .nav__mega-pillar-items { display: flex; flex-direction: column; gap: 2px; list-style: none; margin: 0; padding: 0; }
+  .nav__mega-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 7px 10px 7px 0; text-decoration: none;
+  }
+  .nav__mega-item:hover .nav__mega-item-name { color: var(--nav-gold); }
+  .nav__mega-item-icon {
+    width: 30px; height: 30px;
+    background: var(--nav-gold-dim);
+    border: 1px solid var(--nav-border);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .nav__mega-item-icon svg {
+    width: 14px; height: 14px;
+    stroke: var(--nav-gold); fill: none;
+    stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .nav__mega-item-name {
+    font-size: 12.5px; font-weight: 500;
+    color: rgba(255,255,255,0.82); line-height: 1.3;
+    transition: color 0.15s; display: block;
+  }
+  .nav__mega-item-hint {
+    font-size: 11px; color: rgba(255,255,255,0.35);
+    line-height: 1.4; margin-top: 2px; display: block;
+  }
+  .nav__mega-ind-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 6px 0; font-size: 12px;
+    color: rgba(255,255,255,0.6); text-decoration: none;
+    transition: color 0.15s;
+  }
+  .nav__mega-ind-item:hover { color: var(--nav-gold); }
+  .nav__mega-ind-item::before {
+    content: ''; display: block;
+    width: 16px; height: 1px;
+    background: var(--nav-gold-muted); flex-shrink: 0;
+    transition: width 0.2s var(--nav-ease);
+  }
+  .nav__mega-ind-item:hover::before { width: 22px; }
+  /* ─── HAMBURGER ─────────────────────────────────────────────────── */
+  .nav__hamburger {
+    display: none; flex-direction: column;
+    justify-content: center; gap: 5px;
+    width: 36px; height: 36px; margin-left: 16px;
+    background: none; border: none; cursor: pointer;
+  }
+  .nav__hamburger-bar {
+    display: block; width: 22px; height: 1.5px;
+    background: #fff;
+    transition: transform 0.25s var(--nav-ease), opacity 0.25s;
+  }
+  .nav__hamburger.is-open .nav__hamburger-bar:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav__hamburger.is-open .nav__hamburger-bar:nth-child(2) { opacity: 0; }
+  .nav__hamburger.is-open .nav__hamburger-bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  /* ─── MOBILE PANEL ──────────────────────────────────────────────── */
+  .nav__mobile {
+    display: none;
+    position: fixed;
+    inset: var(--nav-h) 0 0 0;
+    background: var(--nav-navy);
+    z-index: 998;
+    overflow-y: auto;
+    padding: 24px 24px 48px;
+    transform: translateX(100%);
+    transition: transform 0.32s var(--nav-ease);
+  }
+  .nav__mobile.is-open { transform: translateX(0); }
+  .nav__mobile-link {
+    display: block; padding: 14px 0;
+    font-size: 14px; font-weight: 500;
+    color: rgba(255,255,255,0.75);
+    border-bottom: 1px solid var(--nav-border-dark);
+    letter-spacing: 0.02em; text-decoration: none;
+  }
+  .nav__mobile-link:hover { color: var(--nav-gold); }
+  .nav__mobile-group { border-bottom: 1px solid var(--nav-border-dark); }
+  .nav__mobile-toggle {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    width: 100%; padding: 14px 0;
+    font-size: 14px; font-weight: 500;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.02em;
+    background: none; border: none; cursor: pointer;
+    font-family: 'Inter', -apple-system, sans-serif;
+  }
+  .nav__mobile-toggle svg {
+    width: 14px; height: 14px;
+    stroke: var(--nav-muted); flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .nav__mobile-group.is-open .nav__mobile-toggle svg { transform: rotate(180deg); }
+  .nav__mobile-sub {
+    overflow: hidden; max-height: 0;
+    transition: max-height 0.3s var(--nav-ease-out);
+  }
+  .nav__mobile-group.is-open .nav__mobile-sub { max-height: 600px; }
+  .nav__mobile-sub-section {
+    padding: 10px 0 10px 12px;
+    border-left: 1px solid var(--nav-border);
+    margin: 4px 0 12px;
+  }
+  .nav__mobile-sub-title {
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--nav-gold-muted); margin-bottom: 8px;
+  }
+  .nav__mobile-sub-link {
+    display: block; padding: 5px 0;
+    font-size: 12.5px; color: rgba(255,255,255,0.55);
+    text-decoration: none; transition: color 0.15s;
+  }
+  .nav__mobile-sub-link:hover { color: var(--nav-gold); }
+  .nav__mobile-cta {
+    display: block; margin-top: 28px; padding: 14px 24px;
+    text-align: center; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    background: var(--nav-gold); color: var(--nav-navy);
+    text-decoration: none;
+  }
+  /* ─── RESPONSIVE ────────────────────────────────────────────────── */
+  @media (max-width: 1100px) {
+    .nav__links { display: none; }
+    .nav__cta   { display: none; }
+    .nav__hamburger { display: flex; }
+    .nav__mobile    { display: block; }
+    .nav__inner { padding: 0 24px; }
+  }
+  @media (max-width: 768px) {
+    .nav__mega-inner { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ==========================================
+HEADER
+=========================================== -->
+
+<!-- ═══ NEW NAVIGATION ═══════════════════════════════════════════ -->
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Venture Management Architect — Home">
+      <span class="nav__logo-wordmark">Venture <span>Management</span> Architect</span>
+      <span class="nav__logo-sub">Business District International</span>
+    </a>
+    <ul class="nav__links" role="list">
+      
+      <li class="nav__item"><a href="about.html" class="nav__link">Our Philosophy</a></li>
+      <li class="nav__item" data-menu="capabilities">
+        <button class="nav__trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mega-capabilities">
+          Enterprise Capabilities
+          <svg class="nav__chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5"/></svg>
+        </button>
+        <div class="nav__mega" id="mega-capabilities" role="region" aria-label="Enterprise Capabilities menu">
+          <div class="nav__mega-inner">
+            <div class="nav__mega-label">
+              <p class="nav__mega-eyebrow">What We Build</p>
+              <h2 class="nav__mega-heading">Enterprise<br>Capabilities</h2>
+              <p class="nav__mega-desc">From venture incubation to sovereign debt architecture — we design, build, and manage the full enterprise spectrum.</p>
+              <a href="capabilities.html" class="nav__mega-all">All capabilities <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+            </div>
+            <div class="nav__mega-grid nav__mega-grid--caps">
+              <div class="nav__mega-pillar">
+                <p class="nav__mega-pillar-title">Venture Architecture</p>
+                <ul class="nav__mega-pillar-items" role="list">
+                  <li><a href="capabilities.html#incubation" class="nav__mega-item"><span class="nav__mega-item-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5"/><path d="M8 5v3l2 2"/></svg></span><span class="nav__mega-item-body"><span class="nav__mega-item-name">Incubation Architect</span><span class="nav__mega-item-hint">Concept to commercial launch</span></span></a></li>
+                  <li><a href="capabilities.html#growth" class="nav__mega-item"><span class="nav__mega-item-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 12L6 8l3 3 5-7"/></svg></span><span class="nav__mega-item-body"><span class="nav__mega-item-name">Growth Architect</span><span class="nav__mega-item-hint">Scale strategy & execution</span></span></a></li>
+                  <li><a href="capabilities.html#succession" class="nav__mega-item"><span class="nav__mega-item-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 2v12M5 5l3-3 3 3M5 11l3 3 3-3"/></svg></span><span class="nav__mega-item-body"><span class="nav__mega-item-name">Succession Architect</span><span class="nav__mega-item-hint">Leadership continuity planning</span></span></a></li>
+                  <li><a href="capabilities.html#ppp" class="nav__mega-item"><span class="nav__mega-item-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><rect x="2" y="4" width="12" height="8" rx="1"/><path d="M6 4V3a2 2 0 014 0v1"/></svg></span><span class="nav__mega-item-body"><span class="nav__mega-item-name">PPP Venture Architect</span><span class="nav__mega-item-hint">Public-private partnerships</span></span></a></li>
+                  <li><a href="capabilities.html#entrepreneurship" class="nav__mega-item"><span class="nav__mega-item-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 2c-3 0-5 2-5 5s2 5 5 5 5-2 5-5-2-5-5-5z"/><path d="M8 6v2l1.5 1.5"/></svg></span><span class="nav__mega-item-body"><span class="nav__mega-item-name">Entrepreneurship</span><span class="nav__mega-item-hint">Zero-capital business launch</span></span></a></li>
+                </ul>
+              </div>
+              <div class="nav__mega-pillar">
+                <p class="nav__mega-pillar-title">Capital & Risk</p>
+                <ul class="nav__mega-pillar-items" role="list">
+                  <li><a href="capabilities.html#credit-risk" class="nav__mega-item"><span class="nav__mega-item-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8l3 3 7-7"/></svg></span><span class="nav__mega-item-body"><span class="nav__mega-item-name">Credit Risk Architect</span><span class="nav__mega-item-hint">NPL reduction & recovery</span></span></a></li>
+                  <li><a href="capabilities.html#capital-markets" class="nav__mega-item"><span class="nav__mega-item-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 12l3-4 3 2 3-5 3 3"/></svg></span><span class="nav__mega-item-body"><span class="nav__mega-item-name">Capital Markets</span><span class="nav__mega-item-hint">Portfolio & fund strategy</span></span></a></li>
+                  <li><a href="capabilities.html#insurance" class="nav__mega-item"><span class="nav__mega-item-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 2l5 2.5v4C13 11.5 10.5 14 8 14S3 11.5 3 8.5v-4L8 2z"/></svg></span><span class="nav__mega-item-body"><span class="nav__mega-item-name">Insurance Architecture</span><span class="nav__mega-item-hint">Underwriting & liquidity</span></span></a></li>
+                  <li><a href="capabilities.html#banking" class="nav__mega-item"><span class="nav__mega-item-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 14V8l6-6 6 6v6H2z"/></svg></span><span class="nav__mega-item-body"><span class="nav__mega-item-name">Banking & Finance</span><span class="nav__mega-item-hint">Financial systems architecture</span></span></a></li>
+                </ul>
+              </div>
+              <div class="nav__mega-pillar">
+                <p class="nav__mega-pillar-title">Economic Consulting</p>
+                <ul class="nav__mega-pillar-items" role="list">
+                  <li><a href="capabilities.html#economic-consulting" class="nav__mega-item"><span class="nav__mega-item-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><rect x="2" y="6" width="4" height="6"/><rect x="6" y="4" width="4" height="8"/><rect x="10" y="2" width="4" height="10"/></svg></span><span class="nav__mega-item-body"><span class="nav__mega-item-name">Economic & Management</span><span class="nav__mega-item-hint">Strategy & policy advisory</span></span></a></li>
+                  <li><a href="capabilities.html#governance" class="nav__mega-item"><span class="nav__mega-item-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5 2h6l3 4v8H2V6z"/><path d="M9 2v4h5"/></svg></span><span class="nav__mega-item-body"><span class="nav__mega-item-name">Corporate Governance</span><span class="nav__mega-item-hint">Board & compliance frameworks</span></span></a></li>
+                  <li><a href="capabilities.html#international" class="nav__mega-item"><span class="nav__mega-item-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M2 8h12M8 2c-2 2-3 4-3 6s1 4 3 6M8 2c2 2 3 4 3 6s-1 4-3 6"/></svg></span><span class="nav__mega-item-body"><span class="nav__mega-item-name">International Business</span><span class="nav__mega-item-hint">Africa market entry clinic</span></span></a></li>
+                </ul>
+              </div>
+              <div class="nav__mega-pillar">
+                <p class="nav__mega-pillar-title">Agro & Technology</p>
+                <ul class="nav__mega-pillar-items" role="list">
+                  <li><a href="capabilities.html#agro-business" class="nav__mega-item"><span class="nav__mega-item-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 14c0-4 3-8 6-9M8 5c1-1 4-3 6-3-1 3-4 5-6 9"/></svg></span><span class="nav__mega-item-body"><span class="nav__mega-item-name">Agro Business</span><span class="nav__mega-item-hint">Value chain & farm enterprise</span></span></a></li>
+                  <li><a href="capabilities.html#digital" class="nav__mega-item"><span class="nav__mega-item-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><rect x="3" y="3" width="10" height="10" rx="1"/><path d="M6 8h4M8 6v4"/></svg></span><span class="nav__mega-item-body"><span class="nav__mega-item-name">Digital Transformation</span><span class="nav__mega-item-hint">Technology systems design</span></span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="nav__item" data-menu="industries">
+        <button class="nav__trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mega-industries">
+          Industries
+          <svg class="nav__chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5"/></svg>
+        </button>
+        <div class="nav__mega" id="mega-industries" role="region" aria-label="Industries menu">
+          <div class="nav__mega-inner">
+            <div class="nav__mega-label">
+              <p class="nav__mega-eyebrow">Sectors We Serve</p>
+              <h2 class="nav__mega-heading">Industries</h2>
+              <p class="nav__mega-desc">Venture architecture deployed across ten strategic sectors — from sovereign finance to agro technology.</p>
+              <a href="industries.html" class="nav__mega-all">All industries <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+            </div>
+            <div class="nav__mega-grid nav__mega-grid--ind">
+              <div class="nav__mega-pillar"><ul class="nav__mega-pillar-items" role="list">
+                <li><a href="industry-single.html" class="nav__mega-ind-item">Banking & Finance</a></li>
+                <li><a href="industry-single.html" class="nav__mega-ind-item">Government & Public Sector</a></li>
+                <li><a href="industry-single.html" class="nav__mega-ind-item">Capital Markets</a></li>
+                <li><a href="industry-single.html" class="nav__mega-ind-item">Insurance</a></li>
+              </ul></div>
+              <div class="nav__mega-pillar"><ul class="nav__mega-pillar-items" role="list">
+                <li><a href="industry-single.html" class="nav__mega-ind-item">Agriculture & Agro-Tech</a></li>
+                <li><a href="industry-single.html" class="nav__mega-ind-item">Manufacturing</a></li>
+                <li><a href="industry-single.html" class="nav__mega-ind-item">Logistics & Trade</a></li>
+                <li><a href="industry-single.html" class="nav__mega-ind-item">Energy & Infrastructure</a></li>
+              </ul></div>
+              <div class="nav__mega-pillar"><ul class="nav__mega-pillar-items" role="list">
+                <li><a href="industry-single.html" class="nav__mega-ind-item">Technology & Digital</a></li>
+                <li><a href="industry-single.html" class="nav__mega-ind-item">Healthcare</a></li>
+                <li><a href="industry-single.html" class="nav__mega-ind-item">Education</a></li>
+                <li><a href="industry-single.html" class="nav__mega-ind-item">Real Estate</a></li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="nav__item"><a href="stories.html" class="nav__link">Transformation Stories</a></li>
+      <li class="nav__item" data-menu="leadership">
+        <button class="nav__trigger" aria-haspopup="true" aria-expanded="false" aria-controls="drop-leadership">
+          Leadership
+          <svg class="nav__chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5"/></svg>
+        </button>
+        <ul class="nav__dropdown" id="drop-leadership" role="list">
+          <li><a href="leadership.html" class="nav__dropdown-link"><span class="nav__dropdown-dot" aria-hidden="true"></span>Advisory Board</a></li>
+          <li><a href="leadership.html" class="nav__dropdown-link"><span class="nav__dropdown-dot" aria-hidden="true"></span>Management Team</a></li>
+        </ul>
+      </li>
+      <li class="nav__item" data-menu="knowledge">
+        <button class="nav__trigger" aria-haspopup="true" aria-expanded="false" aria-controls="drop-knowledge">
+          Knowledge Centre
+          <svg class="nav__chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5"/></svg>
+        </button>
+        <ul class="nav__dropdown" id="drop-knowledge" role="list">
+          <li><a href="insights.html" class="nav__dropdown-link"><span class="nav__dropdown-dot" aria-hidden="true"></span>Insights & Articles</a></li>
+          <li><a href="resources.html" class="nav__dropdown-link"><span class="nav__dropdown-dot" aria-hidden="true"></span>Resources & Downloads</a></li>
+          <li><a href="stories.html" class="nav__dropdown-link"><span class="nav__dropdown-dot" aria-hidden="true"></span>Awards & Recognition</a></li>
+        </ul>
+      </li>
+    </ul>
+    <a href="contact.html" class="nav__cta">Book Strategy Session</a>
+    <button class="nav__hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-panel">
+      <span class="nav__hamburger-bar"></span>
+      <span class="nav__hamburger-bar"></span>
+      <span class="nav__hamburger-bar"></span>
+    </button>
+  </div>
+</nav>
+<!-- ═══ MOBILE PANEL ═════════════════════════════════════════════ -->
+<div class="nav__mobile" id="mobile-panel" role="dialog" aria-label="Mobile navigation" aria-modal="false">
+  
+  <a href="about.html" class="nav__mobile-link">Our Philosophy</a>
+  <div class="nav__mobile-group">
+    <button class="nav__mobile-toggle" aria-expanded="false">Enterprise Capabilities<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 5l4 4 4-4"/></svg></button>
+    <div class="nav__mobile-sub" role="region">
+      <div class="nav__mobile-sub-section">
+        <p class="nav__mobile-sub-title">Venture Architecture</p>
+        <a href="capabilities.html#entrepreneurship" class="nav__mobile-sub-link">Entrepreneurship</a>
+        <a href="capabilities.html#incubation" class="nav__mobile-sub-link">Incubation Architect</a>
+        <a href="capabilities.html#growth" class="nav__mobile-sub-link">Growth Architect</a>
+        <a href="capabilities.html#succession" class="nav__mobile-sub-link">Succession Architect</a>
+        <a href="capabilities.html#ppp" class="nav__mobile-sub-link">PPP Venture Architect</a>
+      </div>
+      <div class="nav__mobile-sub-section">
+        <p class="nav__mobile-sub-title">Capital & Risk</p>
+        <a href="capabilities.html#credit-risk" class="nav__mobile-sub-link">Credit Risk Architect</a>
+        <a href="capabilities.html#capital-markets" class="nav__mobile-sub-link">Capital Markets</a>
+        <a href="capabilities.html#insurance" class="nav__mobile-sub-link">Insurance Architecture</a>
+        <a href="capabilities.html#banking" class="nav__mobile-sub-link">Banking & Finance</a>
+      </div>
+      <div class="nav__mobile-sub-section">
+        <p class="nav__mobile-sub-title">Economic Consulting</p>
+        <a href="capabilities.html#economic-consulting" class="nav__mobile-sub-link">Economic & Management</a>
+        <a href="capabilities.html#governance" class="nav__mobile-sub-link">Corporate Governance</a>
+        <a href="capabilities.html#international" class="nav__mobile-sub-link">International Business</a>
+      </div>
+      <div class="nav__mobile-sub-section">
+        <p class="nav__mobile-sub-title">Agro & Technology</p>
+        <a href="capabilities.html#agro-business" class="nav__mobile-sub-link">Agro Business</a>
+        <a href="capabilities.html#digital" class="nav__mobile-sub-link">Digital Transformation</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav__mobile-group">
+    <button class="nav__mobile-toggle" aria-expanded="false">Industries<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 5l4 4 4-4"/></svg></button>
+    <div class="nav__mobile-sub" role="region">
+      <div class="nav__mobile-sub-section">
+        <a href="industry-single.html" class="nav__mobile-sub-link">Banking & Finance</a>
+        <a href="industry-single.html" class="nav__mobile-sub-link">Government & Public Sector</a>
+        <a href="industry-single.html" class="nav__mobile-sub-link">Agriculture & Agro-Tech</a>
+        <a href="industry-single.html" class="nav__mobile-sub-link">Manufacturing</a>
+        <a href="industry-single.html" class="nav__mobile-sub-link">Technology & Digital</a>
+        <a href="industry-single.html" class="nav__mobile-sub-link">Energy & Infrastructure</a>
+        <a href="industry-single.html" class="nav__mobile-sub-link">Healthcare</a>
+        <a href="industry-single.html" class="nav__mobile-sub-link">Education</a>
+      </div>
+    </div>
+  </div>
+  <a href="stories.html" class="nav__mobile-link">Transformation Stories</a>
+  <div class="nav__mobile-group">
+    <button class="nav__mobile-toggle" aria-expanded="false">Leadership<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 5l4 4 4-4"/></svg></button>
+    <div class="nav__mobile-sub" role="region">
+      <div class="nav__mobile-sub-section">
+        <a href="leadership.html" class="nav__mobile-sub-link">Advisory Board</a>
+        <a href="leadership.html" class="nav__mobile-sub-link">Management Team</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav__mobile-group">
+    <button class="nav__mobile-toggle" aria-expanded="false">Knowledge Centre<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 5l4 4 4-4"/></svg></button>
+    <div class="nav__mobile-sub" role="region">
+      <div class="nav__mobile-sub-section">
+        <a href="insights.html" class="nav__mobile-sub-link">Insights & Articles</a>
+        <a href="resources.html" class="nav__mobile-sub-link">Resources & Downloads</a>
+        <a href="stories.html" class="nav__mobile-sub-link">Awards & Recognition</a>
+      </div>
+    </div>
+  </div>
+  <a href="contact.html" class="nav__mobile-cta">Book Strategy Session</a>
+</div>
+
+<!-- ==========================================
+HERO
+=========================================== -->
+
+<style>
+/* ── HERO SCISSORS ──────────────────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #08121F;
+}
+
+/* Background image layer */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/images/hero_bg_testing.jpg');
+  background-size: cover;
+  background-position: center center;
+  z-index: 0;
+}
+
+/* Dark overlay on top of image so text stays legible */
+.hero__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 18, 31, 0.55);
+}
+
+/*
+  SCISSORS MASKS — two angled dark panels that slice across the hero
+  ::before  = top-left blade (covers top-left quadrant, tilted CCW)
+  ::after   = bottom-right blade (covers bottom-right quadrant, tilted CW)
+  Together they leave a diagonal band in the middle exposed.
+  z-index: 1 — above the image, below the text (z-index: 2)
+*/
+
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  /* background: #08121F; */
+  z-index: 1;
+}
+
+/* Top-left blade */
+.hero::before {
+  width: 50%;
+  height: 100%;
+  /* top: -15%; */
+  /* left: -10%; */
+  /* transform-origin: top left; */
+  background: rgba(8, 18, 31, 1);
+  transform: skewX(20deg);
+}
+
+/* Bottom-right blade */
+.hero::after {
+  width: 50%;
+  height: 100%;
+  /* bottom: -15%; */
+  /* right: -10%; */
+  /* transform-origin: bottom right; */
+  background: rgba(8, 18, 31, 0.85);
+  transform: skewX(-25deg);
+}
+
+/* Content sits above both blades */
+.hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 80px;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* .hero__content::after {
+    content: "";
+    width: 60%;
+    height: 100%;
+    position: absolute;
+    background-color: rgb(8, 18, 31, 0.55);
+    transform: skewX(-10deg);
+}
+
+
+.hero__content::before {
+    content: "";
+    width: 60%;
+    height: 100%;
+    position: absolute;
+    background-color: rgb(8, 18, 31);
+    transform: skewX(10deg);
+} */
+
+/* ── ROTATING HEADLINE ─────────────────────────────────────────────────── */
+
+.hero__title {
+  position: relative;
+  /* fixed height so layout doesn't shift as phrases change */
+  height: clamp(160px, 22vw, 320px);
+  margin-bottom: 2rem;
+}
+
+.hero__phrase {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  font-size: clamp(48px, 6vw, 96px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #fff;
+
+  /* hidden by default */
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1),
+              transform 0.65s cubic-bezier(0.4,0,0.2,1);
+  pointer-events: none;
+}
+
+.hero__phrase.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.hero__phrase.is-leaving {
+  opacity: 0;
+  transform: translateY(-24px);
+  transition: opacity 0.45s cubic-bezier(0.4,0,0.2,1),
+              transform 0.45s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Gold accent on last word of each phrase */
+.hero__phrase em {
+  font-style: normal;
+  color: #C8A15A;
+}
+
+/* ── PROGRESS PIPS ─────────────────────────────────────────────────────── */
+
+.hero__pips {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.75rem;
+}
+
+.hero__pip {
+  width: 24px;
+  height: 2px;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: background 0.3s, width 0.3s;
+  border: none;
+  padding: 0;
+}
+
+.hero__pip.is-active {
+  background: #C8A15A;
+  width: 40px;
+}
+
+/* ── RIGHT SIDE — image card ───────────────────────────────────────────── */
+
+.hero__image {
+  position: relative;
+  border: 1px solid rgba(200,161,90,0.2);
+}
+
+.hero__image img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4/5;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .hero__content {
+    grid-template-columns: 1fr;
+    padding: 120px 24px 60px;
+    min-height: auto;
+    gap: 40px 0;
+  }
+  .hero__image { display: none; }
+  .hero::before { height: 55%; }
+  .hero::after  { height: 55%; }
+}
+</style>
+
+<!-- ═══ HERO ════════════════════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+
+  <!-- Background image -->
+  <div class="hero__bg" role="img" aria-label="Venture Management Architect enterprise architecture"></div>
+
+  <!-- Content (z above scissors) -->
+  <div class="hero__content">
+
+    <!-- Left col: headline + body -->
+    <div>
+
+      <!-- <span class="caption" style="position:relative;z-index:2">
+        Enterprise Venture Architecture
+      </span> -->
+
+      <!-- Rotating headline — fixed height container -->
+      <div class="hero__title" id="heroTitle" aria-live="polite">
+
+        <h1 class="hero__phrase is-active" data-idx="0">
+          Entrepreneurs Dream
+        </h1>
+
+        <h1 class="hero__phrase" data-idx="1">
+          We Actualize Their Dreams
+        </h1>
+
+        <h1 class="hero__phase" data-idx="2">
+          We Build Your Vision
+        </h1>
+
+        <h1 class="hero__phrase" data-idx="3">
+          We Architect<br>Your Future
+        </h1>
+
+        <h1 class="hero__phrase" data-idx="4">
+          We Launch<br>Your Enterprise
+        </h1>
+
+      </div>
+
+      <!-- Progress pips -->
+      <div class="hero__pips" aria-hidden="true">
+        <button class="hero__pip is-active" data-pip="0" aria-label="Phrase 1"></button>
+        <button class="hero__pip" data-pip="1" aria-label="Phrase 2"></button>
+        <button class="hero__pip" data-pip="2" aria-label="Phrase 3"></button>
+        <button class="hero__pip" data-pip="3" aria-label="Phrase 4"></button>
+        <button class="hero__pip" data-pip="4" aria-label="Phrase 5"></button>
+      </div>
+
+      <p class="lead text-white" style="max-width:520px;margin-bottom:2.5rem">
+        Venture Management Architect Firm, Business District International — one of the World's Leading Specialized Venture Management Architect Firms. A family and friend of entrepreneurs for over 12 years.
+      </p>
+
+      <div class="flex gap">
+        <a href="contact.html" class="btn btn-primary">Start Your Journey</a>
+        <a href="capabilities.html" class="btn btn-outline">Explore Framework</a>
+      </div>
+
+    </div>
+
+    <!-- Right col: image card -->
+    <div class="hero__image">
+      <!-- <img src="assets/images/hero.jpg"
+           alt="Business District International enterprise architecture team"
+           loading="eager"> -->
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+(function () {
+  'use strict';
+
+  var INTERVAL = 3800;
+  var phrases  = Array.from(document.querySelectorAll('.hero__phrase'));
+  var pips     = Array.from(document.querySelectorAll('.hero__pip'));
+  var current  = 0;
+  var busy     = false;
+  var timer;
+
+  function goTo(next) {
+    if (busy || next === current) return;
+    busy = true;
+
+    // outgoing
+    phrases[current].classList.remove('is-active');
+    phrases[current].classList.add('is-leaving');
+
+    // clear leaving class after transition
+    (function(idx){
+      setTimeout(function(){
+        phrases[idx].classList.remove('is-leaving');
+      }, 500);
+    })(current);
+
+    // pips
+    pips[current].classList.remove('is-active');
+    current = next;
+    pips[current].classList.add('is-active');
+
+    // incoming — slight delay so leaving transition leads
+    setTimeout(function(){
+      phrases[current].classList.add('is-active');
+      busy = false;
+    }, 80);
+  }
+
+  function next() { goTo((current + 1) % phrases.length); }
+
+  // pip clicks
+  pips.forEach(function(pip) {
+    pip.addEventListener('click', function(){
+      clearInterval(timer);
+      goTo(parseInt(pip.dataset.pip, 10));
+      timer = setInterval(next, INTERVAL);
+    });
+  });
+
+  // pause on hover
+  var hero = document.getElementById('hero');
+  hero.addEventListener('mouseenter', function(){ clearInterval(timer); });
+  hero.addEventListener('mouseleave', function(){ timer = setInterval(next, INTERVAL); });
+
+  timer = setInterval(next, INTERVAL);
+
+})();
+</script>
+
+
+<!-- ==========================================
+IMPACT / NUMBERS
+=========================================== -->
+
+<section class="section section-light" style="padding: 8rem 0 0 0 ;">
+
+    <div class="container">
+        <div class="container">
+            <div class="container">
+                <div class="container">
+                    <div class="grid-4">
+            
+                        <div class="stat">
+            
+                            <h2 data-counter data-target="13" data-suffix="+">
+            
+                                13+
+            
+                            </h2>
+            
+                            <p>
+            
+                                Years in Business
+            
+                            </p>
+            
+                        </div>
+            
+                        <div class="stat">
+            
+                            <h2 data-counter data-target="662" data-suffix="+">
+            
+                                662+
+            
+                            </h2>
+            
+                            <p>
+            
+                                Happy Customers
+            
+                            </p>
+            
+                        </div>
+            
+                        <div class="stat">
+            
+                            <h2 data-counter data-target="300" data-suffix="+">
+            
+                                300+
+            
+                            </h2>
+            
+                            <p>
+            
+                                Officers
+            
+                            </p>
+            
+                        </div>
+            
+                        <div class="stat">
+            
+                            <h2 data-counter data-target="241" data-suffix="+">
+            
+                                241+
+            
+                            </h2>
+            
+                            <p>
+            
+                                Assets Managed
+            
+                            </p>
+            
+                        </div>
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+PHILOSOPHY
+=========================================== -->
+
+<section class="section section-light">
+
+    <div class="container">
+
+        <div class="grid-2 align-center">
+
+            <div>
+
+                <img src="assets/images/philosophy_test_3.jpg"
+                     alt="Strategic business architecture planning session"
+                     loading="lazy">
+
+            </div>
+
+            <div>
+
+                <span class="caption">
+
+                    Our Philosophy
+
+                </span>
+
+                <h2>
+                    Businesses aren't started. They're Architected.
+                </h2>
+
+                <p>
+
+                    Every successful enterprise begins
+                    with structure, governance,
+                    strategy and execution.
+
+                    We believe businesses should be
+                    intentionally designed rather than
+                    accidentally assembled.
+
+                </p>
+
+                <a href="about.html"
+                   class="btn btn-primary">
+
+                    Discover Our Philosophy
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+ENTERPRISE BLUEPRINT
+=========================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-header center">
+
+            <span class="caption">
+
+                Enterprise Blueprint™
+
+            </span>
+
+            <h2>
+                Our Framework
+            </h2>
+
+            <p>
+
+                Every engagement follows
+                a proven enterprise architecture
+                framework that transforms vision
+                into measurable impact.
+
+            </p>
+
+        </div>
+
+        <div class="grid-4">
+
+            <div class="card">
+
+                <div class="card-content">
+
+                    <h3>
+
+                        Vision
+
+                    </h3>
+
+                    <p>
+
+                        Clarifying opportunity,
+                        purpose and long-term direction.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-content">
+
+                    <h3>
+
+                        Validation
+
+                    </h3>
+
+                    <p>
+
+                        Market research,
+                        feasibility,
+                        customer discovery
+                        and commercial testing.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-content">
+
+                    <h3>
+
+                        Design
+
+                    </h3>
+
+                    <p>
+
+                        Business models,
+                        governance,
+                        operating systems
+                        and investment readiness.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-content">
+
+                    <h3>
+
+                        Scale
+
+                    </h3>
+
+                    <p>
+
+                        Expansion,
+                        investment,
+                        operational excellence
+                        and long-term sustainability.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+OUR SERVICES
+======================================================= -->
+
+<section class="section section-light">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="caption">
+                Venture Management Architect Firm
+            </span>
+
+            <h2>
+                Our Services
+            </h2>
+
+            <p class="section-subtitle">
+                We provide quality service delivery in our service innovation to clients. We deliver exceptional results ensuring that clients are satisfied with our solutions we provide.
+            </p>
+
+        </div>
+
+        <div class="grid-3">
+
+            <article class="service-card">
+
+                <div class="service-card-content">
+
+                    <h3>
+                        Venture Management Architect
+                    </h3>
+
+                    <p>
+                        We move ideas to commercialization by building and managing businesses on behalf of global clients.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="service-card">
+
+                <div class="service-card-content">
+
+                    <h3>
+                        Consulting
+                    </h3>
+
+                    <p>
+                        We generate creative solutions solving complex global challenges.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="service-card">
+
+                <div class="service-card-content">
+
+                    <h3>
+                        Entrepreneurship
+                    </h3>
+
+                    <p>
+                        With zero start-up capital we lead entrepreneurs to fulfill their dreams in business ownership.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="service-card">
+
+                <div class="service-card-content">
+
+                    <h3>
+                        Credit Risk Architect
+                    </h3>
+
+                    <p>
+                        Our expertise manage credit risk on behalf of banks reducing non performing loans.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="service-card">
+
+                <div class="service-card-content">
+
+                    <h3>
+                        Agro Business
+                    </h3>
+
+                    <p>
+                        We partner with agro businesses to deliver value through technology.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="service-card">
+
+                <div class="service-card-content">
+
+                    <h3>
+                        Multi Multi Millionaires
+                    </h3>
+
+                    <p>
+                        We train children in entrepreneurship while building their businesses on their behalf.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+        <div class="section-footer">
+            <a href="capabilities.html" class="btn btn-primary">View All Services</a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+INDUSTRIES
+======================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-header center">
+
+            <span class="caption">
+
+                Industries
+
+            </span>
+
+            <h2>
+                Industry Experience
+            </h2>
+
+        </div>
+
+        <div class="industry-grid">
+
+            <article>
+
+                <img src="assets/images/agriculture_1.jpg"
+                     alt="Agriculture"
+                     loading="lazy">
+
+                <div>
+
+                    <h3>Agriculture</h3>
+
+                    <a href="industry-single.html">
+
+                        Explore →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article>
+
+                <img src="assets/images/infrastructure_1.jpg"
+                     alt="Infrastructure"
+                     loading="lazy">
+
+                <div>
+
+                    <h3>Infrastructure</h3>
+
+                    <a href="industry-single.html">
+
+                        Explore →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article>
+
+                <img src="assets/images/technology_1.jpg"
+                     alt="Technology"
+                     loading="lazy">
+
+                <div>
+
+                    <h3>Technology</h3>
+
+                    <a href="industry-single.html">
+
+                        Explore →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article>
+
+                <img src="assets/images/energy_1.jpg"
+                     alt="Energy"
+                     loading="lazy">
+
+                <div>
+
+                    <h3>Energy</h3>
+
+                    <a href="industry-single.html">
+
+                        Explore →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+TRANSFORMATION STORY
+======================================================= -->
+
+<section class="section section-dark">
+
+    <div class="container">
+
+        <div class="grid-2 align-center">
+
+            <div>
+
+                <span class="caption">
+
+                    Transformation Story
+
+                </span>
+
+                <h2 class="text-white">
+                    Turning Opportunity Into Enterprise Value.
+                </h2>
+
+                <p class="text-white">
+
+                    A regional agribusiness
+                    sought to transform
+                    fragmented operations
+                    into a scalable enterprise.
+
+                    Through enterprise
+                    architecture, governance
+                    redesign and investment
+                    readiness, the business
+                    expanded into multiple
+                    markets.
+
+                </p>
+
+                <a href="story-single.html"
+                   class="btn btn-primary">
+
+                    Read Story
+
+                </a>
+
+            </div>
+
+            <div>
+
+                <img src="assets/images/opportunity_1.jpg"
+                     alt="Enterprise transformation journey from concept to scale"
+                     loading="lazy">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+PROCESS
+======================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="caption">
+
+                Enterprise Journey
+
+            </span>
+
+            <h2>
+                From Vision To Legacy
+            </h2>
+
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <span>01</span>
+
+                <h3>
+
+                    Discover
+
+                </h3>
+
+                <p>
+
+                    Understand the
+                    opportunity.
+
+                </p>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <span>02</span>
+
+                <h3>
+
+                    Validate
+
+                </h3>
+
+                <p>
+
+                    Market research
+                    and testing.
+
+                </p>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <span>03</span>
+
+                <h3>
+
+                    Design
+
+                </h3>
+
+                <p>
+
+                    Business model
+                    and governance.
+
+                </p>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <span>04</span>
+
+                <h3>
+
+                    Build
+
+                </h3>
+
+                <p>
+
+                    Systems,
+                    operations
+                    and execution.
+
+                </p>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <span>05</span>
+
+                <h3>
+
+                    Scale
+
+                </h3>
+
+                <p>
+
+                    Investment
+                    and expansion.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+LEADERSHIP
+======================================================= -->
+
+<section class="section section-light leadership-section">
+
+    <div class="container">
+
+        <div class="leadership-header">
+
+            <div>
+
+                <span class="caption">
+
+                    Leadership
+
+                </span>
+
+                <h2>
+                    Ideas Shape Industries. Leaders Shape Ideas.
+                </h2>
+
+            </div>
+
+            <div>
+
+                <p class="lead">
+
+                    Venture Management Architect is driven by
+                    practitioners, strategists and innovators who
+                    combine enterprise design, governance,
+                    finance and operational excellence to help
+                    organisations create lasting value.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="leadership-grid">
+
+            <article class="leader-card">
+
+                <div class="leader-image">
+
+                    <img src="assets/images/user_account.jpg"
+                         alt="Isaac Kojo Jonah, Chairman of the Advisory Board, Business District International"
+                         loading="lazy">
+
+                </div>
+
+                <div class="leader-content">
+
+                    <span>Chairman, Advisory Board</span>
+
+                    <h3>
+
+                        Isaac Kojo
+                        Jonah
+
+                    </h3>
+
+                    <p>
+
+                        Global Economist, Governance Architect Expert,
+                        Entrepreneur and Legal Transactional Expert with
+                        over 25 years of experience across public and
+                        private sector global institutions.
+
+                    </p>
+
+                    <a href="leadership.html">
+
+                        Full Profile →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article class="leader-card">
+
+                <div class="leader-image">
+
+                    <img src="assets/images/user_account.jpg"
+                         alt="Paul Atta Ansah, Board Member and Venture Operational Financial Architect"
+                         loading="lazy">
+
+                </div>
+
+                <div class="leader-content">
+
+                    <span>Board Member &amp; Venture Operational Financial Architect</span>
+
+                    <h3>
+
+                        Paul Atta
+                        Ansah
+
+                    </h3>
+
+                    <p>
+
+                        MSc Investment Banking &amp; Finance, University of Glasgow.
+                        Over 15 years in executive and senior management consulting
+                        covering Debt, Credit Risk, Finance &amp; Investment Modelling.
+
+                    </p>
+
+                    <a href="leadership.html">
+
+                        Meet the Team →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+KNOWLEDGE CENTRE
+======================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="caption">
+
+                Knowledge Centre
+
+            </span>
+
+            <h2>
+                Insights 
+            </h2>
+
+        </div>
+
+        <div class="insight-grid">
+
+            <article class="insight-card featured">
+
+                <img src="assets/images/framework_1.jpg"
+                     alt="Governance framework white paper and enterprise architecture research"
+                     loading="lazy">
+
+                <div class="insight-content">
+
+                    <span>
+
+                        Featured Insight
+
+                    </span>
+
+                    <h3>
+
+                        Why Every Growing
+                        Enterprise Needs
+                        A Governance
+                        Framework.
+
+                    </h3>
+
+                    <a href="article.html">
+
+                        Read Article →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article class="insight-card">
+
+                <h4>
+
+                    Enterprise
+                    Architecture
+
+                </h4>
+
+                <p>
+
+                    Designing organisations
+                    that scale beyond founders.
+
+                </p>
+
+            </article>
+
+            <article class="insight-card">
+
+                <h4>
+
+                    Investment
+                    Readiness
+
+                </h4>
+
+                <p>
+
+                    Preparing ventures for
+                    institutional capital.
+
+                </p>
+
+            </article>
+
+            <article class="insight-card">
+
+                <h4>
+
+                    Digital
+                    Transformation
+
+                </h4>
+
+                <p>
+
+                    Reimagining business
+                    through technology.
+
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+AWARDS
+======================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-header center">
+
+            <span class="caption">Awards</span>
+            <h2>MEA Business Awards</h2>
+
+        </div>
+
+        <div class="grid-3">
+
+            <article class="card">
+
+                <div class="card-image">
+                    <img src="assets/images/office.jpg"
+                         alt="MEA Business Awards recognition"
+                         loading="lazy">
+                </div>
+
+                <div class="card-content">
+
+                    <h3>MEA Business Awards</h3>
+
+                    <p>
+                        The MEA Business Awards identifies companies who excel
+                        in their respective industries, encompassing the entirety
+                        of the Middle East and Africa in search to highlight firms
+                        that go above and beyond to establish themselves as
+                        business leaders.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="card">
+
+                <div class="card-image">
+                    <img src="assets/images/philosophy.jpg"
+                         alt="Worldwide Finance Awards"
+                         loading="lazy">
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Worldwide Finance Awards</h3>
+
+                    <p>
+                        Each year the World Wide Finance Awards honors those who
+                        are firmly at the forefront of the financial services
+                        sector on a global scale. The World Wide Finance Awards
+                        acknowledges those who have expertly adopted to global
+                        multi-faceted challenges above their peers.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="card">
+
+                <div class="card-image">
+                    <img src="assets/images/about-company.jpg"
+                         alt="Quality Crown Award"
+                         loading="lazy">
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Quality Crown Award</h3>
+
+                    <p>
+                        BID Quality Award is a mark of excellence achieved by
+                        organizations, which in the philosophy of continuous
+                        improvement, have become drivers of innovation.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+        <div class="section-footer">
+            <a href="stories.html" class="btn btn-primary">View All Awards</a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+WHY CHOOSE US
+======================================================= -->
+
+<section class="section section-light">
+
+    <div class="container">
+
+        <div class="section-header center">
+
+            <span class="caption">Why Choose Us</span>
+            <h2>What Sets Us Apart</h2>
+
+        </div>
+
+        <div class="grid-3">
+
+            <article class="card">
+
+                <div class="card-content">
+
+                    <h3>Perfection Anytime</h3>
+
+                    <p>
+                        We are conscious of the time we spend on our clients,
+                        providing them with adequate time necessary to justify
+                        their trust in us.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="card">
+
+                <div class="card-content">
+
+                    <h3>24/7 Business Economy</h3>
+
+                    <p>
+                        We operate a 24 hour business economy, ensuring that
+                        anytime our clients call, we are readily available to
+                        serve their needs.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="card">
+
+                <div class="card-content">
+
+                    <h3>Our Awards</h3>
+
+                    <p>
+                        Our excellence, quality and innovation has gained
+                        international recognition through our awards received
+                        from global institutions.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="card">
+
+                <div class="card-content">
+
+                    <h3>Data Analytics</h3>
+
+                    <p>
+                        We employ data analytics to evaluate and undertake
+                        industry, economic & financial research for accurate
+                        and predictive results.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="card">
+
+                <div class="card-content">
+
+                    <h3>Advance Technology</h3>
+
+                    <p>
+                        Our reliance on cutting edge technology gives us a
+                        competitive advantage in our service delivery
+                        enhancing speed and accuracy.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+CALL TO ACTION
+======================================================= -->
+
+<section class="cta-section">
+
+    <div class="container">
+
+        <div class="cta-wrapper">
+
+            <span class="caption">
+
+                Ready?
+
+            </span>
+
+            <h2>
+                Let's Design Your Next Enterprise.
+            </h2>
+
+            <p>
+
+                Whether you're launching a venture,
+                restructuring an organisation,
+                preparing for investment,
+                or scaling nationally,
+                our team can help architect
+                your next chapter.
+
+            </p>
+
+            <div class="flex gap">
+
+                <a href="contact.html"
+                   class="btn btn-primary">
+
+                    Book Strategy Session
+
+                </a>
+
+                <a href="resources.html"
+                   class="btn btn-outline">
+
+                    Download Company Profile
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+FOOTER
+======================================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <h3>
+
+                    Venture Management Architect
+
+                </h3>
+
+                <p>
+
+                    Architecting sustainable
+                    enterprises across Africa
+                    through strategy,
+                    governance,
+                    innovation and execution.
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <h4>
+
+                    Company
+
+                </h4>
+
+                <ul>
+
+                    <li><a href="about.html">Our Philosophy</a></li>
+                    <li><a href="capabilities.html">Capabilities</a></li>
+                    <li><a href="leadership.html">Leadership</a></li>
+                    <li><a href="stories.html">Transformation Stories</a></li>
+
+                </ul>
+
+            </div>
+
+            <div>
+
+                <h4>
+
+                    Resources
+
+                </h4>
+
+                <ul>
+
+                    <li><a href="insights.html">Articles</a></li>
+                    <li><a href="resources.html">White Papers</a></li>
+                    <li><a href="resources.html">Research</a></li>
+                    <li><a href="contact.html">Events</a></li>
+
+                </ul>
+
+            </div>
+
+            <div>
+
+                <h4>
+
+                    Contact
+
+                </h4>
+
+                <ul>
+
+                    <li>House No. 6, Ayele Osonkor Close, West Legon, Westland</li>
+                    <li>P.O. Box AN 5730, Accra-North, Ghana</li>
+                    <li>GP: GE-328-9185</li>
+                    <li>info@venturemanagementarchitect.com</li>
+                    <li>+233 302 935 520 / +233 302 954 536</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+
+                © 2026 Venture Management Architect.
+                All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- Scroll Progress Indicator -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- GSAP & ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+window.VMA = window.VMA || {};
+</script>
+
+<script type="module" src="assets/js/navigation.js"></script>
+<script type="module" src="assets/js/app.js"></script>
+
+</body>
+
+</html>
