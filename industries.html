@@ -41,77 +41,18 @@
   }
 }
 </script>
-<!-- ─── NEW NAV STYLES ──────────────────────────────────────────── -->
+<!-- ═══ INLINE NAV OVERLAY FIX ═══════════════════════════════ -->
 <style>
-  :root{--nav-navy:#08121F;--nav-navy-mid:#0F1722;--nav-gold:#C8A15A;--nav-gold-muted:#9E7D42;--nav-gold-dim:rgba(200,161,90,0.12);--nav-border:rgba(200,161,90,0.18);--nav-border-dark:rgba(255,255,255,0.07);--nav-muted:#667085;--nav-h:72px;--nav-ease:cubic-bezier(0.4,0,0.2,1);--nav-ease-out:cubic-bezier(0,0,0.2,1)}
-  .nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);background:var(--nav-navy);display:flex;align-items:center;transition:border-bottom .3s var(--nav-ease),box-shadow .3s var(--nav-ease)}
-  .nav.is-scrolled{border-bottom:1px solid var(--nav-border);box-shadow:0 4px 32px rgba(0,0,0,.35)}
-  .nav__inner{width:100%;max-width:1440px;margin:0 auto;padding:0 48px;display:flex;align-items:center}
-  .nav__logo{flex-shrink:0;display:flex;flex-direction:column;gap:1px;margin-right:auto;text-decoration:none}
-  .nav__logo-wordmark{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff;line-height:1}
-  .nav__logo-wordmark span{color:var(--nav-gold)}
-  .nav__logo-sub{font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--nav-muted);line-height:1}
-  .nav__links{display:flex;align-items:center;list-style:none;margin:0;padding:0}
-  .nav__item{position:relative}
-  .nav__link,.nav__trigger{display:flex;align-items:center;gap:5px;padding:0 18px;height:var(--nav-h);font-size:12.5px;font-weight:500;letter-spacing:.04em;color:rgba(255,255,255,.72);text-decoration:none;white-space:nowrap;background:none;border:none;cursor:pointer;font-family:'Inter',-apple-system,sans-serif;transition:color .2s var(--nav-ease)}
-  .nav__link:hover,.nav__trigger:hover,.nav__item.is-open>.nav__trigger{color:var(--nav-gold)}
-  .nav__chevron{width:10px;height:10px;display:block;flex-shrink:0;transition:transform .25s var(--nav-ease)}
-  .nav__item.is-open>.nav__trigger .nav__chevron{transform:rotate(180deg)}
-  .nav__cta{margin-left:24px;flex-shrink:0;display:inline-flex;align-items:center;padding:10px 24px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--nav-navy);background:var(--nav-gold);border:1px solid var(--nav-gold);text-decoration:none;transition:background .2s var(--nav-ease),color .2s var(--nav-ease)}
-  .nav__cta:hover{background:transparent;color:var(--nav-gold)}
-  .nav__dropdown{position:absolute;top:calc(var(--nav-h) - 1px);left:0;min-width:220px;background:var(--nav-navy-mid);border:1px solid var(--nav-border-dark);border-top:2px solid var(--nav-gold);padding:8px 0;list-style:none;margin:0;opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .22s var(--nav-ease-out),transform .22s var(--nav-ease-out)}
-  .nav__item.is-open>.nav__dropdown{opacity:1;pointer-events:auto;transform:translateY(0)}
-  .nav__dropdown-link{display:flex;align-items:center;padding:10px 20px;font-size:12.5px;font-weight:400;color:rgba(255,255,255,.68);text-decoration:none;gap:10px;transition:color .15s,background .15s}
-  .nav__dropdown-link:hover{color:var(--nav-gold);background:var(--nav-gold-dim)}
-  .nav__dropdown-dot{width:3px;height:3px;border-radius:50%;background:var(--nav-gold-muted);flex-shrink:0}
-  .nav__mega{position:fixed;top:var(--nav-h);left:0;right:0;background:var(--nav-navy-mid);border-top:1px solid var(--nav-border);border-bottom:1px solid var(--nav-border-dark);box-shadow:0 24px 64px rgba(0,0,0,.45);z-index:999;opacity:0;pointer-events:none;transform:translateY(-6px);transition:opacity .25s var(--nav-ease-out),transform .25s var(--nav-ease-out)}
-  .nav__item.is-open>.nav__mega{opacity:1;pointer-events:auto;transform:translateY(0)}
-  .nav__mega-inner{max-width:1440px;margin:0 auto;padding:48px 48px 56px;display:grid;grid-template-columns:220px 1fr;gap:0 64px}
-  .nav__mega-label{padding-top:4px}
-  .nav__mega-eyebrow{font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--nav-gold);margin-bottom:12px}
-  .nav__mega-heading{font-size:22px;font-weight:300;line-height:1.3;letter-spacing:-.01em;color:#fff;margin-bottom:16px}
-  .nav__mega-desc{font-size:12px;line-height:1.75;color:rgba(255,255,255,.45);margin-bottom:28px}
-  .nav__mega-all{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--nav-gold);text-decoration:none;transition:gap .2s var(--nav-ease)}
-  .nav__mega-all:hover{gap:11px}
-  .nav__mega-all svg{width:12px;height:12px}
-  .nav__mega-grid{display:grid;gap:0 32px;align-content:start}
-  .nav__mega-grid--caps{grid-template-columns:repeat(2,1fr)}
-  .nav__mega-grid--ind{grid-template-columns:repeat(3,1fr)}
-  .nav__mega-pillar{padding:24px 0;border-top:1px solid var(--nav-border-dark)}
-  .nav__mega-pillar-title{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--nav-gold-muted);margin-bottom:12px}
-  .nav__mega-pillar-items{display:flex;flex-direction:column;gap:2px;list-style:none;margin:0;padding:0}
-  .nav__mega-item{display:flex;align-items:flex-start;gap:10px;padding:7px 10px 7px 0;text-decoration:none}
-  .nav__mega-item:hover .nav__mega-item-name{color:var(--nav-gold)}
-  .nav__mega-item-icon{width:30px;height:30px;background:var(--nav-gold-dim);border:1px solid var(--nav-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-  .nav__mega-item-icon svg{width:14px;height:14px;stroke:var(--nav-gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-  .nav__mega-item-name{font-size:12.5px;font-weight:500;color:rgba(255,255,255,.82);line-height:1.3;transition:color .15s;display:block}
-  .nav__mega-item-hint{font-size:11px;color:rgba(255,255,255,.35);line-height:1.4;margin-top:2px;display:block}
-  .nav__mega-ind-item{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:12px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s}
-  .nav__mega-ind-item:hover{color:var(--nav-gold)}
-  .nav__mega-ind-item::before{content:'';display:block;width:16px;height:1px;background:var(--nav-gold-muted);flex-shrink:0;transition:width .2s var(--nav-ease)}
-  .nav__mega-ind-item:hover::before{width:22px}
-  .nav__hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;margin-left:16px;background:none;border:none;cursor:pointer}
-  .nav__hamburger-bar{display:block;width:22px;height:1.5px;background:#fff;transition:transform .25s var(--nav-ease),opacity .25s}
-  .nav__hamburger.is-open .nav__hamburger-bar:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-  .nav__hamburger.is-open .nav__hamburger-bar:nth-child(2){opacity:0}
-  .nav__hamburger.is-open .nav__hamburger-bar:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-  .nav__mobile{display:none;position:fixed;inset:var(--nav-h) 0 0 0;background:var(--nav-navy);z-index:998;overflow-y:auto;padding:24px 24px 48px;transform:translateX(100%);transition:transform .32s var(--nav-ease)}
-  .nav__mobile.is-open{transform:translateX(0)}
-  .nav__mobile-link{display:block;padding:14px 0;font-size:14px;font-weight:500;color:rgba(255,255,255,.75);border-bottom:1px solid var(--nav-border-dark);letter-spacing:.02em;text-decoration:none}
-  .nav__mobile-link:hover{color:var(--nav-gold)}
-  .nav__mobile-group{border-bottom:1px solid var(--nav-border-dark)}
-  .nav__mobile-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 0;font-size:14px;font-weight:500;color:rgba(255,255,255,.75);letter-spacing:.02em;background:none;border:none;cursor:pointer;font-family:'Inter',-apple-system,sans-serif}
-  .nav__mobile-toggle svg{width:14px;height:14px;stroke:var(--nav-muted);flex-shrink:0;transition:transform .2s}
-  .nav__mobile-group.is-open .nav__mobile-toggle svg{transform:rotate(180deg)}
-  .nav__mobile-sub{overflow:hidden;max-height:0;transition:max-height .3s var(--nav-ease-out)}
-  .nav__mobile-group.is-open .nav__mobile-sub{max-height:600px}
-  .nav__mobile-sub-section{padding:10px 0 10px 12px;border-left:1px solid var(--nav-border);margin:4px 0 12px}
-  .nav__mobile-sub-title{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--nav-gold-muted);margin-bottom:8px}
-  .nav__mobile-sub-link{display:block;padding:5px 0;font-size:12.5px;color:rgba(255,255,255,.55);text-decoration:none;transition:color .15s}
-  .nav__mobile-sub-link:hover{color:var(--nav-gold)}
-  .nav__mobile-cta{display:block;margin-top:28px;padding:14px 24px;text-align:center;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--nav-gold);color:var(--nav-navy);text-decoration:none}
-  @media(max-width:1100px){.nav__links,.nav__cta{display:none}.nav__hamburger{display:flex}.nav__mobile{display:block}.nav__inner{padding:0 24px}}
-  @media(max-width:768px){.nav__mega-inner{grid-template-columns:1fr}}
+  .nav { z-index: 1000 !important; }
+  .nav__dropdown { z-index: 1001 !important; }
+  .nav__mega { z-index: 1001 !important; }
+  .nav__item.is-open > .nav__dropdown,
+  .nav__item.is-open > .nav__mega {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+    visibility: visible !important;
+  }
 </style>
 </head>
 
@@ -312,7 +253,7 @@
             <span>Industries</span>
         </div>
         <span class="caption">Industries</span>
-        <h1 class="display display--md text-white">Deep Industry Experience, Tangible Results.</h1>
+        <h1 class="display display--md text-white">Deep Industry Experience</h1>
         <p class="lead text-white">We bring deep domain expertise across multiple sectors, enabling us to design context-specific solutions that deliver measurable enterprise impact.</p>
     </div>
 </section>
@@ -387,7 +328,7 @@
         <div class="grid-2 align-center">
             <div>
                 <span class="caption">Cross-Sector Expertise</span>
-                <h2>Enterprise Architecture Is Industry Agnostic. Domain Expertise Is Not.</h2>
+                <h2>Enterprise Architecture Is Industry Agnostic.</h2>
                 <p>Our teams combine enterprise architecture methodologies with deep industry domain expertise to deliver solutions that are both structurally sound and contextually relevant.</p>
                 <p>We invest time in understanding the unique regulatory, operational and market dynamics of each sector before designing any enterprise solution.</p>
             </div>
