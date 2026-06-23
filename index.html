@@ -316,12 +316,12 @@ HERO
   z-index: 0;
 }
 
-/* Dark overlay on top of image so text stays legible */
+
 .hero__bg::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(8, 18, 31, 0.55);
+  background: rgba(8, 18, 31, 0.35);
 }
 
 .hero::before,
@@ -361,25 +361,6 @@ HERO
   align-items: center;
   min-height: 100vh;
 }
-
-/* .hero__content::after {
-    content: "";
-    width: 60%;
-    height: 100%;
-    position: absolute;
-    background-color: rgb(8, 18, 31, 0.55);
-    transform: skewX(-10deg);
-}
-
-
-.hero__content::before {
-    content: "";
-    width: 60%;
-    height: 100%;
-    position: absolute;
-    background-color: rgb(8, 18, 31);
-    transform: skewX(10deg);
-} */
 
 /* ── ROTATING HEADLINE ─────────────────────────────────────────────────── */
 
@@ -477,8 +458,9 @@ HERO
     gap: 40px 0;
   }
   .hero__image { display: none; }
-  .hero::before { height: 55%; }
-  .hero::after  { height: 55%; }
+  .hero::before { width: 90%; left: -6rem; }
+  .hero::after  { width: 70%; left: -1rem; }
+  .hero__bg::after { background: rgba(8, 18, 31, 0.5);}
 }
 </style>
 
@@ -486,7 +468,11 @@ HERO
 <section class="hero" id="hero">
 
   <!-- Background image -->
-  <div class="hero__bg" role="img" aria-label="Venture Management Architect enterprise architecture"></div>
+  <div class="hero__bg" role="img" aria-label="Venture Management Architect enterprise architecture">
+    <div class="hero__bg-scissors">
+
+    </div>
+  </div>
 
   <!-- Content (z above scissors) -->
   <div class="hero__content">
