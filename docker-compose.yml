@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    networks:
+      - proxy-network
+
+networks:
+  proxy-network:
+    external: true
