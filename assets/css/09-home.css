@@ -583,7 +583,157 @@ footer{
     margin:0;
 }
 
+/* -----------------------------------------------------
+Contact Page
+------------------------------------------------------ */
+
+.page-hero{
+    min-height:60vh;
+    display:flex;
+    align-items:center;
+    background:var(--color-primary);
+    position:relative;
+    overflow:hidden;
+}
+
+.page-hero--sm{
+    min-height:50vh;
+}
+
+.page-hero .breadcrumbs{
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    margin-bottom:1.5rem;
+    font-size:.85rem;
+    color:rgba(255,255,255,.4);
+}
+
+.page-hero .separator{
+    color:var(--color-accent);
+}
+
+.page-hero .lead.text-white{
+    max-width:650px;
+    opacity:.7;
+}
+
+/* Contact grid layout */
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:5rem;
+    align-items:start;
+}
+
+.contact-grid h2{
+    margin-bottom:1rem;
+}
+
+.contact-grid > div:first-child p{
+    margin-bottom:2.5rem;
+}
+
+/* Form styling */
+.form-group{
+    margin-bottom:1.5rem;
+}
+
+.form-group label{
+    display:block;
+    font-size:.8rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:var(--color-text-muted);
+    margin-bottom:.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:1rem 1.25rem;
+    font-family:var(--font-body);
+    font-size:1rem;
+    color:var(--color-text);
+    background:var(--color-white);
+    border:1px solid var(--color-border);
+    border-radius:12px;
+    transition:var(--transition-fast);
+    outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:var(--color-accent);
+    box-shadow:0 0 0 3px var(--navy-light, rgba(8,18,31,.05));
+}
+
+.form-group textarea{
+    resize:vertical;
+    min-height:140px;
+}
+
+.form-group select{
+    appearance:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' stroke='%23667085' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 1.25rem center;
+    padding-right:2.5rem;
+}
+
+/* Contact info cards */
+.contact-info h3{
+    margin-bottom:2rem;
+}
+
+.contact-info-item{
+    display:flex;
+    gap:1.25rem;
+    margin-bottom:2rem;
+    padding:1.5rem;
+    background:var(--color-surface-alt);
+    border-radius:var(--radius-lg);
+    border:1px solid var(--color-border);
+    transition:var(--transition);
+}
+
+.contact-info-item:hover{
+    transform:translateY(-2px);
+    box-shadow:var(--shadow-sm);
+}
+
+.contact-info-item svg{
+    width:24px;
+    height:24px;
+    flex-shrink:0;
+    stroke:var(--color-accent);
+    margin-top:2px;
+}
+
+.contact-info-item h4{
+    font-size:.8rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:var(--color-accent);
+    margin-bottom:.5rem;
+}
+
+.contact-info-item p{
+    font-size:.95rem;
+    color:var(--color-text-light);
+    line-height:1.6;
+    margin:0;
+}
+
 @media(max-width:900px){
+    .contact-grid{
+        grid-template-columns:1fr;
+        gap:3rem;
+    }
     .footer-grid{
         grid-template-columns:1fr 1fr;
         gap:3rem;
