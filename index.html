@@ -188,7 +188,6 @@ HEADER
           </div>
         </div>
       </li>
-      <li class="nav__item"><a href="stories.html" class="nav__link">Transformation Stories</a></li>
       <li class="nav__item" data-menu="leadership">
         <button class="nav__trigger" aria-haspopup="true" aria-expanded="false" aria-controls="drop-leadership">
           Leadership
@@ -269,7 +268,6 @@ HEADER
       </div>
     </div>
   </div>
-  <a href="stories.html" class="nav__mobile-link">Transformation Stories</a>
   <div class="nav__mobile-group">
     <button class="nav__mobile-toggle" aria-expanded="false">Leadership<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 5l4 4 4-4"/></svg></button>
     <div class="nav__mobile-sub" role="region">
@@ -326,29 +324,17 @@ HERO
   background: rgba(8, 18, 31, 0.55);
 }
 
-/*
-  SCISSORS MASKS — two angled dark panels that slice across the hero
-  ::before  = top-left blade (covers top-left quadrant, tilted CCW)
-  ::after   = bottom-right blade (covers bottom-right quadrant, tilted CW)
-  Together they leave a diagonal band in the middle exposed.
-  z-index: 1 — above the image, below the text (z-index: 2)
-*/
-
 .hero::before,
 .hero::after {
   content: '';
   position: absolute;
-  /* background: #08121F; */
   z-index: 1;
 }
 
 /* Top-left blade */
 .hero::before {
   width: 50%;
-  height: 100%;
-  /* top: -15%; */
-  /* left: -10%; */
-  /* transform-origin: top left; */
+  height: 150%;
   background: rgba(8, 18, 31, 1);
   transform: skewX(20deg);
 }
@@ -356,10 +342,7 @@ HERO
 /* Bottom-right blade */
 .hero::after {
   width: 50%;
-  height: 100%;
-  /* bottom: -15%; */
-  /* right: -10%; */
-  /* transform-origin: bottom right; */
+  height: 150%;
   background: rgba(8, 18, 31, 0.85);
   transform: skewX(-25deg);
 }
@@ -1422,7 +1405,7 @@ LEADERSHIP
 
                 <div class="leader-content">
 
-                    <span>Board Member &amp; Venture Operational Financial Architect</span>
+                    <span>Board Member &amp; Financial Architect</span>
 
                     <h3>
 
@@ -1875,7 +1858,7 @@ FOOTER
                     <li><a href="about.html">Our Philosophy</a></li>
                     <li><a href="capabilities.html">Capabilities</a></li>
                     <li><a href="leadership.html">Leadership</a></li>
-                    <li><a href="stories.html">Transformation Stories</a></li>
+                    
 
                 </ul>
 
