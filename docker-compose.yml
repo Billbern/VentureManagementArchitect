@@ -4,8 +4,8 @@ services:
     ports:
       - "8080:80"
     networks:
-      - nginx-proxy-manager
+      - npm-shared-net
 
 networks:
-  nginx-proxy-manager:
+  npm-shared-net:
     external: true
