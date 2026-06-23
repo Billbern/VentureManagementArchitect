@@ -4,8 +4,8 @@ services:
     ports:
       - "8080:80"
     networks:
-      - proxy-network
+      - nginx-proxy-network
 
 networks:
-  proxy-network:
+  nginx-proxy-network:
     external: true
